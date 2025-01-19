@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="NameOrganization">Удивительные товары</string>
+    <string name="Login">Логин</string>
+    <string name="Password">Пароль</string>
+    <string name="Login1">-</string>
+    <string name="Password1">-</string>
+    <string name="Recover_password">Восстановить пароль</string>
+    <string name="SignIn">Войти</string>
+    <string name="SignOut">Выйти</string>
+</resources>
