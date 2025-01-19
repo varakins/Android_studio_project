@@ -1,11 +1,18 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="NameOrganization">Удивительные товары</string>
-    <string name="Login">Логин</string>
+    <string name="E_mail">Введите адрес электроной почты</string>
     <string name="Password">Пароль</string>
     <string name="Login1">-</string>
     <string name="Password1">-</string>
     <string name="Recover_password">Восстановить пароль</string>
     <string name="SignIn">Войти</string>
-    <string name="SignOut">Выйти</string>
+    <string name="SignOut">Зарегистрироватся</string>
+    <string name="Registration">Регистрация</string>
+    <string name="Phone">Номер телефона</string>
+    <string name="Last_name">Фамилия</string>
+    <string name="First_name">Имя</string>
+    <string name="Middle_name">Отчество</string>
+    <string name="Restore">Восстановить</string>
+    <string name="Back">Назад</string>
 </resources>
