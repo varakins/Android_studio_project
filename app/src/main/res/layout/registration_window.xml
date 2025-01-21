@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:text="@string/Back"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="52dp"
-        android:text="@string/E_mail"
-        android:textSize="24dp"
+        android:text="@string/Print_e_mail"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/editTextText6"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         tools:ignore="MissingConstraints" />
@@ -35,31 +35,33 @@
         android:layout_marginStart="3dp"
         android:layout_marginEnd="3dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Password1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="@+id/editTextText"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextText2"
         android:layout_width="401dp"
         android:layout_height="64dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Password1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/textView1"
         app:layout_constraintEnd_toEndOf="@+id/editTextText3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView1"
@@ -68,7 +70,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:text="@string/Phone"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/editTextText3"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:ignore="MissingConstraints" />
@@ -79,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
         android:text="@string/Password"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/editTextText"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints" />
@@ -91,32 +93,34 @@
         android:layout_marginStart="118dp"
         android:layout_marginEnd="118dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Login1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextText6"
         android:layout_width="402dp"
         android:layout_height="61dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Login1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/editTextText2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView5"
@@ -125,7 +129,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="68dp"
         android:text="@string/First_name"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:ignore="MissingConstraints" />
@@ -135,16 +139,17 @@
         android:layout_width="405dp"
         android:layout_height="57dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Login1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="@+id/editTextText6"
         app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints" />
 
     <TextView
         android:id="@+id/textView6"
@@ -153,7 +158,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
         android:text="@string/Middle_name"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:ignore="MissingConstraints" />
@@ -163,23 +168,24 @@
         android:layout_width="401dp"
         android:layout_height="63dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:text="@string/Login1"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="@+id/editTextText5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="LabelFor,MissingConstraints,DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Registration"
-        android:textSize="24dp"
+        android:textSize="24sp"
 
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +201,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="48dp"
         android:text="@string/Last_name"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -206,7 +212,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
         android:text="@string/SignOut"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextText3"
         app:layout_constraintHorizontal_bias="0.496"

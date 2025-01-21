@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="NameOrganization">Удивительные товары</string>
-    <string name="E_mail">Введите адрес электроной почты</string>
+    <string name="Print_e_mail">Введите адрес электроной почты</string>
     <string name="Password">Пароль</string>
     <string name="Login1">-</string>
     <string name="Password1">-</string>
@@ -20,4 +20,12 @@
     <string name="Shop">Магазин</string>
     <string name="Basket">Корзина</string>
     <string name="Change_account">Сменить аккаунт</string>
+    <string name="E_mail">адрес электроной почты</string>
+    <string name="Remember">Запомнить</string>
+    <string name="Фамилия" />
+    <string name="Отчество" />
+    <string name="Электронная_почта" />
+    <string name="Пароль" />
+    <string name="Номер_телефона" />
+    <string name="Имя" />
 </resources>
