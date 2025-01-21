@@ -28,4 +28,5 @@
     <string name="Пароль" />
     <string name="Номер_телефона" />
     <string name="Имя" />
+    <string name="By">Поиск</string>
 </resources>
