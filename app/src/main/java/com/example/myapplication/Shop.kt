@@ -1,31 +1,30 @@
 package com.example.myapplication
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.Button
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class Shop : AppCompatActivity() {
-
-    private lateinit var spinner: Spinner
-    private val items = arrayOf("Item 1", "Item 2", "Item 3", "Item 4")
-
+    private lateinit var BattonBack: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        spinner = findViewById(R.id.spinner)
-
-        // Создание адаптера для отображения данных в Spinner
-        val adapter = ArrayAdapter(
-            this, android.R.layout.simple_spinner_item, items
-        )
-
-        // Установка выпадающего вида для адаптера
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        // Установка адаптера для Spinner
-        spinner.adapter = adapter
+        enableEdgeToEdge()
+        setContentView(R.layout.shop)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+        BattonBack = findViewById(R.id.Back)
+        BattonBack.setOnClickListener()
+        {
+            val intent = Intent(this@Shop,Home_page::class.java)
+            startActivity(intent)
+        }
     }
 }

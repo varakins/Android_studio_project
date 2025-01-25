@@ -34,6 +34,11 @@
             android:exported="false"/>
         <activity android:name=".Home_page"
             android:exported="false"/>
+        <activity android:name=".Shop"
+            android:exported="false"/>
+        <activity android:name=".Basket"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

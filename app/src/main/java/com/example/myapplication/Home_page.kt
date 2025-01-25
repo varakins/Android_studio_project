@@ -10,6 +10,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 class Home_page : AppCompatActivity(){
     private lateinit var BattonBack: Button
+    private lateinit var BattonProfile: Button
+    private lateinit var BattonShop: Button
+    private lateinit var BattonBasket: Button
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +27,26 @@ class Home_page : AppCompatActivity(){
         BattonBack = findViewById(R.id.Back)
         BattonBack.setOnClickListener()
         {
-            val intent = Intent(this@Home_page,Entrance::class.java)
-            startActivity(intent)
+            val intent1 = Intent(this@Home_page,Entrance::class.java)
+            startActivity(intent1)
+        }
+        BattonProfile = findViewById(R.id.Profile)
+        BattonProfile.setOnClickListener()
+        {
+            val intent2 = Intent(this@Home_page,Profile::class.java)
+            startActivity(intent2)
+        }
+        BattonShop = findViewById(R.id.Shop)
+        BattonShop.setOnClickListener()
+        {
+            val intent3 = Intent(this@Home_page,Shop::class.java)
+            startActivity(intent3)
+        }
+        BattonBasket = findViewById(R.id.Basket)
+        BattonBasket.setOnClickListener()
+        {
+            val intent4 = Intent(this@Home_page,Basket::class.java)
+            startActivity(intent4)
         }
     }
 }

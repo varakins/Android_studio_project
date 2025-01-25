@@ -19,26 +19,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/Shop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="11dp"
         android:text="@string/Shop"
         android:textSize="56sp"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintBottom_toTopOf="@+id/Basket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/Profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
         android:layout_marginBottom="9dp"
         android:text="@string/Profile"
         android:textSize="56sp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintStart_toStartOf="@+id/button7" />
+        app:layout_constraintBottom_toTopOf="@+id/Shop"
+        app:layout_constraintStart_toStartOf="@+id/Shop" />
 
     <Button
         android:id="@+id/Back"
@@ -52,13 +52,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/Basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/Basket"
         android:textSize="56sp"
         app:layout_constraintBottom_toTopOf="@+id/Back"
-        app:layout_constraintStart_toStartOf="@+id/button7" />
+        app:layout_constraintStart_toStartOf="@+id/Shop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
