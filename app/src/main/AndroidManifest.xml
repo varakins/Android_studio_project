@@ -21,6 +21,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Entrance"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".Recover_password"
+            android:exported="false"/>
+        <activity android:name=".Registration_window"
+            android:exported="false"/>
+        <activity android:name=".Profile"
+            android:exported="false"/>
+        <activity android:name=".Home_page"
+            android:exported="false"/>
     </application>
 
 </manifest>
