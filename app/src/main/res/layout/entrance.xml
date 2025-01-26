@@ -15,7 +15,7 @@
         android:layout_marginBottom="103dp"
         android:text="@string/Password"
         app:layout_constraintBottom_toTopOf="@+id/recover"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints" />
 
@@ -50,17 +50,16 @@
         android:layout_marginStart="3dp"
         android:layout_marginTop="125dp"
         android:text="@string/E_mail"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
+        app:layout_constraintStart_toStartOf="@+id/editTextEmail"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextPassword"
         android:layout_width="252dp"
         android:layout_height="57dp"
         android:ems="10"
         android:importantForAutofill="no"
-        android:inputType="text"
         android:text="@string/Password1"
         app:layout_constraintBottom_toTopOf="@+id/recover"
         app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -81,13 +80,12 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextEmail"
         android:layout_width="260dp"
         android:layout_height="57dp"
         android:layout_marginStart="62dp"
         android:ems="10"
         android:importantForAutofill="no"
-        android:inputType="text"
         android:text="@string/Login1"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"

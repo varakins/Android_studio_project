@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         ImageButtonn = findViewById(R.id.imageButton2)
-        ImageButtonn.setOnClickListener(){
+        ImageButtonn.setOnClickListener() {
             val intent = Intent(this@MainActivity,Entrance::class.java)
             startActivity(intent)
         }
