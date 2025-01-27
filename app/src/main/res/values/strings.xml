@@ -3,6 +3,7 @@
     <string name="NameOrganization">Удивительные товары</string>
     <string name="Print_e_mail">Введите адрес электроной почты</string>
     <string name="Password">Пароль</string>
+    <string name="New_password">Новый пароль</string>
     <string name="Login1">-</string>
     <string name="Password1">-</string>
     <string name="Recover_password">Восстановить пароль</string>

@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Database
 import kotlinx.coroutines.flow.Flow
+import androidx.room.Update
 
 @Dao
 interface UsersDAO {
@@ -20,5 +21,8 @@ interface UsersDAO {
     fun getUserById(userId: Int) : Flow<Users>
     @Query("SELECT * FROM users")
     fun getAllUsers() : Flow<List<Users>>
+
+    @Update
+    suspend fun update(user: Users)
 
 }

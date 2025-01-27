@@ -48,6 +48,9 @@ class Entrance : AppCompatActivity(){
         button_registration = findViewById(R.id.registration)
         button_signIn = findViewById(R.id.signIn)
 
+        emailEditText.text.clear()
+        passwordEditText.text.clear()
+
         button_signIn.isEnabled = false
         emailEditText.doAfterTextChanged {checkFields() }
         passwordEditText.doAfterTextChanged{ checkFields()}

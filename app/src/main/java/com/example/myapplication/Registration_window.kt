@@ -50,6 +50,13 @@ class Registration_window : AppCompatActivity(){
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
 
+        lastNameEditText.text.clear()
+        firstNameEditText.text.clear()
+        middleNameEditText.text.clear()
+        phoneEditText.text.clear()
+        emailEditText.text.clear()
+        passwordEditText.text.clear()
+
         ButtonRegistration.isEnabled = false
         lastNameEditText.doAfterTextChanged { checkFields() }
         firstNameEditText.doAfterTextChanged { checkFields() }
