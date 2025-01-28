@@ -14,14 +14,15 @@ import com.example.myapplication.db.Users
 import com.example.myapplication.db.UsersDAO
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
-import com.example.myapplication.db.AppDatabase
+import com.example.myapplication.db.AppDatabases
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
 
+
 class Recover_password : AppCompatActivity(){
-    private lateinit var ddb: AppDatabase
+    private lateinit var ddb: AppDatabases
     private lateinit var userDao: UsersDAO
     private lateinit var ButtonBack: Button
     private lateinit var ButtonRecover: Button
@@ -37,7 +38,7 @@ class Recover_password : AppCompatActivity(){
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        ddb = AppDatabase.getDatabase(applicationContext)
+        ddb = AppDatabases.getDatabase(applicationContext)
         userDao = ddb.userDao()
         ButtonBack = findViewById(R.id.Back)
         ButtonRecover = findViewById(R.id.Regist)

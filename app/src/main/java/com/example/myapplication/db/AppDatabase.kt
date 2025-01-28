@@ -14,7 +14,7 @@ import androidx.room.TypeConverters
     exportSchema = false
 )
 @TypeConverters(DateConverter::class, OrderStatusConverter::class)
-abstract class AppDatabase : RoomDatabase() {
+abstract class AppDatabases : RoomDatabase() {
     abstract fun categoryDao(): CategoriesDAO
     abstract fun productDao(): ProductsDAO
     abstract fun userDao(): UsersDAO
@@ -24,18 +24,19 @@ abstract class AppDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: AppDatabase? = null
+        private var INSTANCE: AppDatabases? = null
 
-        fun getDatabase(context: Context): AppDatabase {
+        fun getDatabase(context: Context): AppDatabases {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    AppDatabase::class.java,
-                    "app_database"
+                    AppDatabases::class.java,
+                    "app_databases"
                 ).build()
                 INSTANCE = instance
                 instance
             }
         }
     }
+
 }

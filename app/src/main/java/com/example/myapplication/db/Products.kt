@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
 data class Products(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
-    val image: ByteArray? = null, // Image as ByteArray
+    val imageURL: String,
     val price: Double,
     val qty: Int,
     val categoryId: Int

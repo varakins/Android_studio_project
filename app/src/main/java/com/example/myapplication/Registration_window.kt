@@ -12,14 +12,14 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.myapplication.db.Users
 import com.example.myapplication.db.UsersDAO
 import androidx.core.widget.doAfterTextChanged
-import com.example.myapplication.db.AppDatabase
+import com.example.myapplication.db.AppDatabases
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
 class Registration_window : AppCompatActivity(){
 
-    private lateinit var ddb: AppDatabase
+    private lateinit var ddb: AppDatabases
     private lateinit var userDao: UsersDAO
     private lateinit var ButtonBack: Button
     private lateinit var ButtonRegistration: Button
@@ -39,7 +39,7 @@ class Registration_window : AppCompatActivity(){
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        ddb = AppDatabase.getDatabase(applicationContext)
+        ddb = AppDatabases.getDatabase(applicationContext)
         userDao = ddb.userDao()
         ButtonBack = findViewById(R.id.Back)
         ButtonRegistration = findViewById(R.id.Regist)

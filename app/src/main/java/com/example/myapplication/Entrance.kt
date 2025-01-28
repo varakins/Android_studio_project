@@ -13,16 +13,17 @@ import com.example.myapplication.db.Users
 import com.example.myapplication.db.UsersDAO
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
-import com.example.myapplication.db.AppDatabase
+import com.example.myapplication.db.AppDatabases
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
 
 
+
 class Entrance : AppCompatActivity(){
 
-    private lateinit var ddb: AppDatabase
+    private lateinit var ddb: AppDatabases
     private lateinit var userDao: UsersDAO
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -40,7 +41,7 @@ class Entrance : AppCompatActivity(){
             insets
         }
 
-        ddb = AppDatabase.getDatabase(applicationContext)
+        ddb = AppDatabases.getDatabase(applicationContext)
         userDao = ddb.userDao()
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
