@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -15,6 +17,7 @@ class Shop : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
     private lateinit var productList: ArrayList<Products>
+    private lateinit var ButtonBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shop)
@@ -29,6 +32,12 @@ class Shop : AppCompatActivity() {
         productList.add(Products(5,"Product 5", "https://images.unsplash.com/photo-1615267518284-43f198dc6c88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",7499.99,50,2))
         adapter = ProductAdapter(productList)
         recyclerView.adapter = adapter
+        ButtonBack = findViewById(R.id.Back)
+
+        ButtonBack.setOnClickListener(){
+            val intent = Intent(this@Shop,Home_page::class.java)
+            startActivity(intent)
+        }
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
