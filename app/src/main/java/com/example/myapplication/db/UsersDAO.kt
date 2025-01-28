@@ -22,6 +22,20 @@ interface UsersDAO {
     @Query("SELECT * FROM users")
     fun getAllUsers() : Flow<List<Users>>
 
+    @Query("SELECT lastName FROM users WHERE email = :email")
+    fun getLastNameUserByEmail(email: String) : Flow<String>
+
+    @Query("SELECT firstName FROM users WHERE email = :email")
+    fun getFirstNameUserByEmail(email: String) : Flow<String>
+
+    @Query("SELECT middleName FROM users WHERE email = :email")
+    fun getMiddleNameUserByEmail(email: String) : Flow<String>
+
+    @Query("SELECT phone FROM users WHERE email = :email")
+    fun getPhoneUserByEmail(email: String) : Flow<String>
+
+
+
     @Update
     suspend fun update(user: Users)
 

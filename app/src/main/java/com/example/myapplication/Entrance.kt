@@ -81,6 +81,7 @@ class Entrance : AppCompatActivity(){
                 user ->  if(user != null){
             Toast.makeText(this@Entrance, "Login success", Toast.LENGTH_SHORT).show()
             val intent3 = Intent(this@Entrance,Home_page::class.java)
+            intent3.putExtra("email",emailEditText.text.toString())
             startActivity(intent3)
         }else{
             Toast.makeText(this@Entrance, "Login fail", Toast.LENGTH_SHORT).show()

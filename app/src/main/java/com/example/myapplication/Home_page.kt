@@ -9,10 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 class Home_page : AppCompatActivity(){
-    private lateinit var BattonBack: Button
-    private lateinit var BattonProfile: Button
-    private lateinit var BattonShop: Button
-    private lateinit var BattonBasket: Button
+    private lateinit var ButtonBack: Button
+    private lateinit var ButtonProfile: Button
+    private lateinit var ButtonShop: Button
+    private lateinit var ButtonBasket: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,26 +24,28 @@ class Home_page : AppCompatActivity(){
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        BattonBack = findViewById(R.id.Back)
-        BattonBack.setOnClickListener()
+        ButtonBack = findViewById(R.id.Back)
+        ButtonBack.setOnClickListener()
         {
             val intent1 = Intent(this@Home_page,Entrance::class.java)
             startActivity(intent1)
         }
-        BattonProfile = findViewById(R.id.Profile)
-        BattonProfile.setOnClickListener()
+        ButtonProfile = findViewById(R.id.Profile)
+        val emaill = intent.getStringExtra("email")
+        ButtonProfile.setOnClickListener()
         {
             val intent2 = Intent(this@Home_page,Profile::class.java)
+            intent2.putExtra("email",emaill)
             startActivity(intent2)
         }
-        BattonShop = findViewById(R.id.Shop)
-        BattonShop.setOnClickListener()
+        ButtonShop = findViewById(R.id.Shop)
+        ButtonShop.setOnClickListener()
         {
             val intent3 = Intent(this@Home_page,Shop::class.java)
             startActivity(intent3)
         }
-        BattonBasket = findViewById(R.id.Basket)
-        BattonBasket.setOnClickListener()
+        ButtonBasket = findViewById(R.id.Basket)
+        ButtonBasket.setOnClickListener()
         {
             val intent4 = Intent(this@Home_page,Basket::class.java)
             startActivity(intent4)
