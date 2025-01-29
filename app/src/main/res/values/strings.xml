@@ -30,4 +30,5 @@
     <string name="Номер_телефона" />
     <string name="Имя" />
     <string name="By">Поиск</string>
+    <string name="Add_basket">Добавить в корзину</string>
 </resources>
