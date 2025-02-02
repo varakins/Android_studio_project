@@ -18,7 +18,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
-
+import kotlinx.coroutines.flow.take
 
 
 class Entrance : AppCompatActivity(){
@@ -78,14 +78,14 @@ class Entrance : AppCompatActivity(){
     private suspend fun checkUser() {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
-        userDao.getUserByEmailAndPassword(email, password).collect{
+        userDao.getUserByEmailAndPassword(email, password).take(1).collect{
                 user ->  if(user != null){
-            Toast.makeText(this@Entrance, "Login success", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Entrance, "Авторизация прошла успешно", Toast.LENGTH_SHORT).show()
             val intent3 = Intent(this@Entrance,Home_page::class.java)
             intent3.putExtra("email",emailEditText.text.toString())
             startActivity(intent3)
         }else{
-            Toast.makeText(this@Entrance, "Login fail", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Entrance, "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
         }
         }
     }

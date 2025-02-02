@@ -19,6 +19,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
+import kotlinx.coroutines.flow.take
 
 
 class Recover_password : AppCompatActivity(){
@@ -77,14 +78,14 @@ class Recover_password : AppCompatActivity(){
         val email = emailEditText.text.toString()
         val newPassword = passwordEditText.text.toString()
 
-        userDao.getUserByEmail(email).collect {
+        userDao.getUserByEmail(email).take(1).collect {
             user -> if(user != null){
                 val updatedUser = user.copy(password = newPassword)
                 userDao.update(updatedUser)
-                Toast.makeText(this@Recover_password, "Password Updated!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Recover_password, "Пароль успешно изменён", Toast.LENGTH_SHORT).show()
             }
             else {
-                Toast.makeText(this@Recover_password, "User not found", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Recover_password, "Пользователя с такой электронной почтой нет", Toast.LENGTH_SHORT).show()
             }
         }
     }

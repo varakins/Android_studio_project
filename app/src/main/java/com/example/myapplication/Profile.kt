@@ -20,6 +20,12 @@ import kotlinx.coroutines.launch
 import androidx.core.widget.doAfterTextChanged
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.take
+import android.util.Log
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+
+
 
 class Profile : AppCompatActivity(){
     private lateinit var ddb: AppDatabases
@@ -58,20 +64,23 @@ class Profile : AppCompatActivity(){
         phoneEditText.doAfterTextChanged { checkFields() }
         emailEditText.doAfterTextChanged { checkFields() }
 
+        loadUserData()
 
-        val email = intent.getStringExtra("email")
-        emailEditText.setText(email)
+        if (emailEditText.text.isNullOrEmpty()) {
+            val email = intent.getStringExtra("email")
+            emailEditText.setText(email)
+            lifecycleScope.launch {
+                DataUsers()
+            }
+        }
 
 
         emailEditText.isFocusable = false
         emailEditText.isFocusableInTouchMode = false
 
-        lifecycleScope.launch {
-            DataUsers()
-        }
-
         ButtonBack.setOnClickListener()
         {
+            saveUserData()
             val intent = Intent(this@Profile,Home_page::class.java)
             startActivity(intent)
         }
@@ -92,6 +101,26 @@ class Profile : AppCompatActivity(){
 
     }
 
+    private fun saveUserData() {
+        val sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("lastName", lastNameEditText.text.toString())
+        editor.putString("firstName", firstNameEditText.text.toString())
+        editor.putString("middleName", middleNameEditText.text.toString())
+        editor.putString("phone", phoneEditText.text.toString())
+        editor.putString("email", emailEditText.text.toString())
+        editor.apply()
+    }
+
+    private fun loadUserData() {
+        val sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE)
+        lastNameEditText.setText(sharedPreferences.getString("lastName", ""))
+        firstNameEditText.setText(sharedPreferences.getString("firstName", ""))
+        middleNameEditText.setText(sharedPreferences.getString("middleName", ""))
+        phoneEditText.setText(sharedPreferences.getString("phone", ""))
+        emailEditText.setText(sharedPreferences.getString("email", ""))
+    }
+
     private suspend fun DataUsers(){
 
         combine(
@@ -104,13 +133,13 @@ class Profile : AppCompatActivity(){
             firstNameEditText.setText(firstName ?: "")
             middleNameEditText.setText(middleName ?: "")
             phoneEditText.setText(phone ?: "")
-        }.collect()
+        }.take(1).collect()
 
     }
 
     private suspend fun UpdateUsers() {
 
-        userDao.getUserByEmail(emailEditText.text.toString()).collect {
+        userDao.getUserByEmail(emailEditText.text.toString()).take(1).collect {
                 user -> if(user != null){
             val updatedUser = user.copy(lastName = lastNameEditText.text.toString(),
                 firstName = firstNameEditText.text.toString(),
@@ -119,7 +148,7 @@ class Profile : AppCompatActivity(){
             )
             userDao.update(updatedUser)
 
-            Toast.makeText(this@Profile, "DataUser Updated!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Profile, "Данные изменены", Toast.LENGTH_SHORT).show()
             }
         }
 

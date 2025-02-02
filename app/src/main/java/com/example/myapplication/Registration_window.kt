@@ -15,6 +15,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.example.myapplication.db.AppDatabases
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 
 class Registration_window : AppCompatActivity(){
@@ -76,14 +77,58 @@ class Registration_window : AppCompatActivity(){
         }
     }
 
-    fun checkFields(){
-        ButtonRegistration.isEnabled = lastNameEditText.text.isNotBlank()
-                && firstNameEditText.text.isNotBlank()
-                && middleNameEditText.text.isNotBlank()
-                && phoneEditText.text.isNotBlank()
-                && emailEditText.text.isNotBlank()
-                && passwordEditText.text.isNotBlank()
+    private fun isValidPhone(phone: String): Boolean {
+        val phoneRegex = Regex("^89\\d{9}$") // Начинается с 89 и содержит 11 цифр
+        return phoneRegex.matches(phone)
+    }
 
+    private fun isValidEmail(email: String): Boolean {
+        val emailRegex = Regex("^[^@]+@[^@]+\\.[^@]+$") // Содержит @ и не начинается с него
+        return emailRegex.matches(email)
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        return password.length >= 8
+    }
+
+    fun checkFields() {
+        val phone = phoneEditText.text.toString()
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
+
+        val isPhoneValid = isValidPhone(phone)
+        val isEmailValid = isValidEmail(email)
+        val isPasswordValid = isValidPassword(password)
+
+        // Отображение ошибок
+        if (phone.isNotBlank() && !isPhoneValid) {
+            phoneEditText.error = "Телефон должен состоять из 11 цифр и начинаться с 89"
+        } else {
+            phoneEditText.error = null
+        }
+
+        if (email.isNotBlank() && !isEmailValid) {
+            emailEditText.error = "Некорректный email"
+        } else {
+            emailEditText.error = null
+        }
+
+        if (password.isNotBlank() && !isPasswordValid) {
+            passwordEditText.error = "Пароль должен быть не менее 8 символов"
+        } else {
+            passwordEditText.error = null
+        }
+
+        // Активация кнопки
+        ButtonRegistration.isEnabled = lastNameEditText.text.isNotBlank() &&
+                firstNameEditText.text.isNotBlank() &&
+                middleNameEditText.text.isNotBlank() &&
+                phoneEditText.text.isNotBlank() &&
+                emailEditText.text.isNotBlank() &&
+                passwordEditText.text.isNotBlank() &&
+                isPhoneValid &&
+                isEmailValid &&
+                isPasswordValid
     }
 
     private suspend fun insertUser() {
@@ -98,16 +143,25 @@ class Registration_window : AppCompatActivity(){
             password = passwordEditText.text.toString()
         )
 
-        userDao.insert(newUser)
+        userDao.getUserByEmail(emailEditText.text.toString()).take(1).collect() {
+                user -> if(user != null){
+            Toast.makeText(this@Registration_window, "Пользователь с такой электронной почтой уже есть", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            userDao.insert(newUser)
 
-        Toast.makeText(this@Registration_window, "User added", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Registration_window, "Регистрация прошла успешно", Toast.LENGTH_SHORT).show()
 
-        lastNameEditText.text.clear()
-        firstNameEditText.text.clear()
-        middleNameEditText.text.clear()
-        phoneEditText.text.clear()
-        emailEditText.text.clear()
-        passwordEditText.text.clear()
+            lastNameEditText.text.clear()
+            firstNameEditText.text.clear()
+            middleNameEditText.text.clear()
+            phoneEditText.text.clear()
+            emailEditText.text.clear()
+            passwordEditText.text.clear()
+        }
+        }
+
+
 
     }
 }
