@@ -23,10 +23,14 @@ import com.bumptech.glide.request.target.Target
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
+import android.widget.Toast
 
 
-class ProductAdapter(private var productList: List<Products>) :
+class ProductAdapter(productList: List<Products>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+
+    // Объявляем productList как var внутри класса
+    private var productList: List<Products> = productList
 
     companion object {
         const val BASKET_KEY = "basket"
@@ -48,7 +52,7 @@ class ProductAdapter(private var productList: List<Products>) :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         holder.productName.text = product.name
-        holder.productPrice.text = String.format("%.2f Р",product.price)
+        holder.productPrice.text = String.format("%.2f Р", product.price)
         Glide.with(holder.productImage.context)
             .load(product.imageURL)
             .placeholder(R.drawable.hdun)
@@ -63,11 +67,28 @@ class ProductAdapter(private var productList: List<Products>) :
         val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val gson = Gson()
         val basket: MutableList<BasketItem> = getBasket(sharedPreferences)
-        basket.add(BasketItem(product, 1))
+
+        // Проверяем, есть ли уже такой товар в корзине
+        val existingItemIndex = basket.indexOfFirst { it.product.id == product.id }
+        if (existingItemIndex != -1) {
+            // If item exists, copy existingItem and change the quantity
+            val existingItem = basket[existingItemIndex]
+            val updatedItem = existingItem.copy(quantity = existingItem.quantity + 1)
+            basket[existingItemIndex] = updatedItem
+
+        } else {
+            // Если товара нет, добавляем его в корзину
+            basket.add(BasketItem(product, 1))
+        }
+
+        // Сохраняем обновленную корзину в SharedPreferences
         val jsonBasket = gson.toJson(basket)
         sharedPreferences.edit().putString(BASKET_KEY, jsonBasket).apply()
 
-        // Optionally navigate to BasketActivity
+        // Показываем уведомление
+        Toast.makeText(context, "${product.name} добавлен в корзину", Toast.LENGTH_SHORT).show()
+
+        // Переход в активность Basket (опционально)
         val intent = Intent(context, Basket::class.java)
         context.startActivity(intent)
     }
@@ -83,8 +104,9 @@ class ProductAdapter(private var productList: List<Products>) :
         return productList.size
     }
 
-    fun updateData(newList: List<Products>) { // Corrected type here
-        productList = newList
+    // Обновление данных в адаптере
+    fun updateData(newList: List<Products>) {
+        productList = newList // Теперь это работает, так как productList объявлен как var
         notifyDataSetChanged()
     }
 }

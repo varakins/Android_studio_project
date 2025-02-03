@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    tools:context=".Basket"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/basketTextView"
+        android:id="@+id/totalPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Общая стоимость: 0.00 Р"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/basketRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Купить"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/Back"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/Back"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/Back" />
+
 </LinearLayout>
